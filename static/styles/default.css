@@ -1,0 +1,617 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x:hidden;
+  background-image: url('../images/b-wall-small.jpg');
+  background-position: right top;
+}
+
+p, h1, h2, h3 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'lucida grande',
+               tahoma, verdana, arial, sans-serif;
+  font-weight: normal;
+  margin-top: 0px;
+}
+
+a, button, span {
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'lucida grande',
+               tahoma, verdana, arial, sans-serif;
+  font-weight: lighter;
+  letter-spacing: 0.1em;
+}
+
+ul.strip-default, ul.strip-default li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+/* SHARED STYLES */
+
+.menu a, .menu span {
+  display: block;
+  color: white;
+  background: rgb(0, 0, 0) transparent;
+  background: rgba(0, 0, 0, 0.7);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#BB000000,
+                                                    endColorstr=#BB000000);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(
+      startColorstr=#BB000000, endColorstr=#BB000000)";
+}
+
+.menu a:hover {
+  background: black;
+}
+
+.menu span {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.clear {
+  clear: both;
+  display: block;
+  height: 0;
+}
+
+/* MAIN CONTIANERS */
+
+.hidden-container {
+  left :-100%;
+  overflow: hidden;
+}
+
+.main-container {
+  background-image: url('../images/b-wall-small.jpg');
+  background-position: right top;
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  padding-top: 10px;
+}
+
+.detailed-container {
+  position: absolute;
+  background-image: url('../images/b-wall-gray-small.jpg');
+  background-attachment: fixed;
+  background-position: center 10px;
+  min-height: 100%;
+  width: 100%;
+}
+
+.detailed-container-left-pipe {
+  position: absolute;
+  background-image: url('../images/main-stack.png');
+  background-repeat: repeat-y;
+  background-position: left top;
+  width: 127px;
+  left: 40px;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.detailed-container-right-pipe {
+  background-image: url('../images/right-pipe-continue.png');
+  background-position: 1319px top;
+  background-repeat: repeat-y;
+  position: absolute;
+  top: 0;
+  bottom :0;
+  width: 100%;
+  z-index: 1;
+}
+
+.detailed-container-right {
+  background-image: url('../images/brocken-wall-right-small.png');
+  background-position: right top;
+  position: absolute;
+  top: 0;
+  bottom :0;
+  right: 0;
+  width: 115px;
+  z-index: 3;
+}
+
+.detailed-container-left {
+  background-image: url('../images/brocken-wall-left-small.png');
+  background-position: left top;
+  position: absolute;
+  top: 0;
+  bottom :0;
+  left: 0;
+  width: 115px;
+  z-index: 3;
+}
+
+/* WINDOW */
+.window {
+  position:relative;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  background: url('../images/bathroom-bg-original.jpg') no-repeat center center;
+  min-height: 530px;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.window-left {
+  position: absolute;
+  height: 100%;
+  width: 22px;
+  background: url('../images/left-right-frame.png');
+}
+
+.window-right {
+  position: absolute;
+  height: 100%;
+  width: 22px;
+  right: 0;
+  background: url('../images/left-right-frame.png') right center;
+}
+
+.window-top {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  height: 23px;
+  background: url('../images/top-bottom-frame.png') center top;
+}
+
+.window-bottom {
+  position: absolute;
+  height: 23px;
+  left: 18px;
+  right: 18px;
+  bottom: 0;
+  background: url('../images/top-bottom-frame.png') center bottom;
+}
+
+.window-top-left {
+  position: absolute;
+  height: 208px;
+  width: 148px;
+  left: 22px;
+  top: 23px;
+  background: url('../images/window.png') left top;
+}
+
+.window-bottom-left {
+  position: absolute;
+  height: 239px;
+  width: 148px;
+  left: 22px;
+  bottom: 23px;
+  background: url('../images/window.png') left bottom;
+}
+
+.window-top-right {
+  position: absolute;
+  height: 208px;
+  width: 148px;
+  right: 22px;
+  top: 23px;
+  background: url('../images/window.png') right top;
+}
+
+.window-bottom-right {
+  position: absolute;
+  height: 239px;
+  width: 148px;
+  right: 22px;
+  bottom: 23px;
+  background: url('../images/window.png') right bottom;
+}
+
+.window-left-continue {
+  position: absolute;
+  width: 148px;
+  top: 200px;
+  left: 22px;
+  bottom: 200px;
+  background: url('../images/window-center.png') left center;
+}
+
+.window-right-continue {
+  position: absolute;
+  width: 148px;
+  top: 200px;
+  right: 22px;
+  bottom: 200px;
+  background: url('../images/window-center.png') right center;
+}
+
+/* CONTENT CONTAINERS */
+
+.main-menu-container {
+  padding: 53px 170px 53px 170px;
+}
+
+.content-container {
+  padding-top: 10px;
+  margin-left: 142px;
+  margin-right: 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* CONTENT SECTION */
+
+.content-section {
+  background: url('../images/bottom-border-drain.png') left bottom;
+  background-repeat: no-repeat;
+  padding-bottom: 80px;
+  padding-left: 35px;
+  padding-right: 130px;
+  max-width: 1130px;
+}
+
+.relative {
+  position: relative;
+}
+
+.content-card {
+  padding: 3%;
+  box-shadow: 3px 3px 5px #505050;
+  background-color: rgb(255, 255, 255) transparent;
+  background-color: rgba(255,255,255,0.7);
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#BBFFFFFF,
+                                                    endColorstr=#BBFFFFFF);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(
+      startColorstr=#BBFFFFFF, endColorstr=#BBFFFFFF)";
+}
+
+.rel-header {
+  display: block;
+  with: 100%;
+  border: 1px solid #999999;
+  border-width: 0 0 1px 0;
+  margin-bottom: 3px;
+  font-size: 0.8em;
+}
+
+a.related {
+  background-color: #333333;
+  display: inline-block;
+  padding: 6px;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.content-card a:hover {
+  background-color: black;
+}
+
+/* SERVICES PAGE */
+
+.fading-tap {
+  background-image: url('../images/fading-tap.png');
+  background-position: left;
+  background-repeat: no-repeat;
+  max-height: 487px;
+}
+
+.fading-house {
+  background-image: url('../images/fading-house.png');
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  max-height: 486px;
+}
+
+.fading-drain {
+  background-image: url('../images/fading-drain.png');
+  background-position: right;
+  background-repeat: no-repeat;
+  max-height: 363px;
+}
+
+div.services-menu ul {
+  max-width: 31%;
+  display: inline-block;
+  float: left;
+}
+
+div.sm-right ul {
+  float: right;
+}
+
+div.services-menu div {
+  margin-left: 2%;
+  float: left;
+  width: 60%;
+}
+
+div.sm-right div {
+  margin-left: 0;
+}
+
+div.services-menu li {
+  margin: 10px 0;
+}
+
+div.services-menu li:first-child, div.services-menu li:last-child {
+  margin: 0;
+}
+
+.services-menu a, .services-menu span {
+  padding: 10px 20px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .services-menu h2{
+    margin-bottom: 5px;
+    font-size: 1.2em;
+  }
+  .services-menu p {
+    margin: 0;
+  }
+  div.services-menu ul {
+    max-width: 41%;
+  }
+  div.services-menu div {
+    width: 50%;
+  }
+  .services-menu a, .services-menu span {
+    padding: 10px 5px;
+  }
+}
+
+/* Service Pages */
+
+div.one-card-img, div.two-card-img {
+  box-shadow: 3px 3px 5px #505050;
+  width: 30%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+div.two-card-img {
+  width: 20%;
+}
+
+div.one-card-img.right, div.two-card-img.right {
+  right: 0;
+}
+
+div.one-card-img.bottom {
+  top: 51%;
+  bottom:0;
+}
+
+div.one-card-img.top {
+  top: 0;
+  bottom: 50%;
+}
+
+div.one-card {
+  width: 63%;
+}
+
+div.two-card {
+  width: 52%;
+  margin-left: 21%;
+}
+
+div.one-card.right {
+  margin-left: 31%;
+}
+
+@media (max-width: 840px) {
+  div.two-card-img {
+    width: 30%;
+  }
+
+  div.two-card-img.right {
+    display: none;
+  }
+
+  div.two-card {
+    width: 63%;
+    margin-left: 31%;
+  }
+
+  div.one-card ul, div.two-card ul, div.zero-card ul,
+  div.one-card ol, div.two-card ol, div.zero-card ol{
+    padding-left: 20px;
+  }
+}
+
+/* Basement Plumbing */
+
+div.basement-stack {
+  background-image: url('../images/basement-stack.jpg');
+}
+
+div.house-filter {
+  background-image: url('../images/house-filter.jpg');
+}
+
+/* Kitchen Plumbing */
+
+div.kitchen-tap {
+  background-image: url('../images/kitchen-tap.jpg');
+}
+
+div.dishwasher-open {
+  background-image: url('../images/dishwasher-open.jpg');
+}
+
+div.dishwasher-closed {
+  background-image: url('../images/dishwasher-closed.jpg');
+}
+
+/* Bathroom Plumbing */
+
+div.toilet {
+  background-image: url('../images/toilet.jpg');
+}
+
+div.shower {
+  background-image: url('../images/shower.jpg');
+}
+
+div.faucet {
+  background-image: url('../images/faucet.jpg');
+}
+
+/* Clogs */
+
+div.drain {
+  background-position: bottom;
+  background-image: url('../images/drain.jpg');
+}
+
+div.clog {
+  background-image: url('../images/clog.jpg');
+}
+
+div.camera-inspection {
+  background-image: url('../images/camera-inspection.png');
+}
+
+/* Leaks */
+
+div.leak {
+  background-image: url('../images/leak.jpg');
+}
+
+/* Weak Pressure */
+
+div.weak-pressure {
+  background-image: url('../images/weak-pressure.jpg');
+}
+
+/* Water Proofing */
+
+div.waterproofing {
+  background-image: url('../images/waterproofing.jpg');
+}
+
+div.window-well {
+  background-image: url('../images/window-well.jpg');
+}
+
+/* Construction and Renovations */
+
+div.rough-in {
+  background-image: url('../images/rough-in.jpg');
+}
+
+div.construction-truck {
+  background-image: url('../images/construction-truck.jpg');
+}
+
+/* Main Line Replacements */
+
+div.new-water-line {
+  background-image: url('../images/new-water-line.jpg');
+}
+
+div.digging {
+  background-image: url('../images/digging.jpg');
+}
+
+/* Commercial Plumbing */
+
+div.urinals {
+  background-image: url('../images/urinals.jpg');
+}
+
+div.water-fountain {
+  background-image: url('../images/water-fountain.jpg');
+}
+
+/* MAIN MENU */
+
+ul.main-menu {
+  width: 300px;
+  margin: 0 auto;
+}
+
+ul.main-menu li {
+  margin: 5px 0;
+}
+
+ul.main-menu a, ul.main-menu span {
+  font-size: 26px;
+  padding: 20px;
+}
+
+ul.main-menu a:hover {
+  background:black;
+}
+
+@media (max-width: 840px) {
+  /* main container adjustments */
+  .main-menu-container {
+    padding: 53px 23px 23px 23px;
+  }
+
+  .window-top-left, .window-top-right, .window-bottom-left,
+  .window-bottom-right, .window-left-continue, .window-right-continue {
+     display:none; 
+   }
+  
+  .window {
+    width : 95%;
+  }
+  ul.main-menu {
+    width: 95%;
+  }
+  ul.main-menu a, ul.main-menu span {
+    font-size: 24px;
+  }
+
+  /* detailed container adjustments */
+  .detailed-container-left-pipe {
+    background-position: -50px top;
+    width: 87px;
+    left: 0;
+  }
+  .detailed-container-left {
+    background-position: -50px top;
+    position: absolute;
+    top: 0;
+    bottom :0;
+    left: 0;
+    width: 65px;
+    z-index: 3;
+  }
+  .detailed-container-right-pipe, .detailed-container-right {
+    display: none;
+  }
+  .content-container {
+    margin-left: 52px;
+  }
+  .content-section {
+    padding-right: 10px;
+    padding-bottom: 70px;
+  }
+  .main-container {
+    background-image: url('../images/b-wall-small-shifted.png');
+  }
+
+  /* Services adjustments. */
+
+}
