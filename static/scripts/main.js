@@ -145,13 +145,13 @@ function togglePage() {
     toPage.css('left', '100%');
   }
   fromPage.animate({'left' : isMain ? '-100%' : '100%'},
-                   {'duration' : 500, 'complete' : function() {
+                   {'duration' : 1000, 'complete' : function() {
     if (toPage == mainContainer) {
       fromPage.css('left', '-100%');
     }
   }});
   toPage.animate({'left' : '0%'},
-                 {'duration' : 500, 'complete' : function() {
+                 {'duration' : 1000, 'complete' : function() {
     toPage.css({'height' : 'auto', 'overflow' : 'auto'});
     isMain = !isMain;
     transitionEnded();
