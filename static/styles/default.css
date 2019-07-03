@@ -675,6 +675,12 @@ ul.main-menu a:hover {
   .main-container {
     background-image: url('../images/b-wall-small-shifted.png');
   }
+  .logo-title > span {
+    margin-top: 140px;
+    width: 50%;
+    padding-left: 30%;
+
+  }
 
   /* Services adjustments. */
 
