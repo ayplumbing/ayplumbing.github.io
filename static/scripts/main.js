@@ -111,14 +111,14 @@ function toggleSubPage(container, page) {
     var new_height = next_subpage.height();
     next_subpage.css({'position':'absolute', 'top':'-'+(new_height+100)+'px',
                       'left':0, 'right':0, 'visibility':'visible'});
-    current_subpage.animate({'top':(new_height+120)+'px'},
-                            {'duration':500, 'easing': 'easeInOutExpo',
+    current_subpage.animate({'top':(Math.max(new_height, $(window).height())+120)+'px'},
+                            {'duration':1000, 'easing': 'easeInOutExpo',
                              'complete' : function() {
                                 current_subpage.hide();
                                 current_subpage.css({'position':'static'});
                             }});
     next_subpage.animate({'top':'10px'},
-                         {'duration':500, 'easing' : 'easeInOutExpo',
+                         {'duration':1000, 'easing' : 'easeInOutExpo',
                            'complete': function() {
                              next_subpage.css({'position': 'static',
                                                'height':'auto',
