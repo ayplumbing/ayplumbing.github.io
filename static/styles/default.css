@@ -376,21 +376,21 @@ a.related {
   background-image: url('../images/fading-tap.png');
   background-position: left;
   background-repeat: no-repeat;
-  max-height: 487px;
+  background-size: cover;
 }
 
 .fading-house {
   background-image: url('../images/fading-house.png');
   background-position: bottom left;
   background-repeat: no-repeat;
-  max-height: 486px;
+  background-size: cover;
 }
 
 .fading-drain {
   background-image: url('../images/fading-drain.png');
   background-position: right;
   background-repeat: no-repeat;
-  max-height: 363px;
+  background-size: cover;
 }
 
 div.sm-right ul {
@@ -643,11 +643,7 @@ ul.main-menu a:hover {
   }
   .logo-title > span {
     margin-top: 140px;
-    width: 50%;
     padding-left: 30%;
 
   }
-
-  /* Services adjustments. */
-
 }
