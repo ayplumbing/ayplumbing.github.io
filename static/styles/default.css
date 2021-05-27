@@ -24,15 +24,6 @@ body * {
   margin-top: 0px;
 }
 
-li a, .content-button {
-  text-decoration: none;
-  font-size: 15px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, 'lucida grande',
-               tahoma, verdana, arial, sans-serif;
-  font-weight: lighter;
-  letter-spacing: 0.1em;
-}
-
 ul.strip-default, ul.strip-default li {
   list-style-type: none;
   padding: 0;
@@ -49,15 +40,20 @@ ul.strip-default, ul.strip-default li {
 
 /* SHARED STYLES */
 
-.menu li a, .menu li span, a.content-button {
+li a, li span, .content-button {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, 'lucida grande',
+               tahoma, verdana, arial, sans-serif;
+  font-weight: lighter;
+  letter-spacing: 0.1em;
+}
+
+.menu li > a, .menu li > span, a.content-button {
   display: block;
-  color: white;
-  background: rgb(0, 0, 0) transparent;
-  background: rgba(0, 0, 0, 0.8);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#BB000000,
-                                                    endColorstr=#BB000000);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(
-      startColorstr=#BB000000, endColorstr=#BB000000)";
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid transparent;
 }
 
 a.content-button {
@@ -68,14 +64,8 @@ a.content-button {
 }
 
 .menu li a:hover, a.content-button:hover {
-  background: black;
-}
-
-.menu span {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  background-color:white;
+  text-decoration: underline;
 }
 
 .clear {
@@ -159,41 +149,49 @@ a.content-button {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
-  background: url('../images/kitchen.jpg') no-repeat center center;
+  background: url('../images/kitchen.jpg') no-repeat 90% center;
   min-height: 530px;
   width: 80%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto;
 }
-.seals {
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 20px;
+.welcome-sign {
+  background-image: url('../images/welcome-sign.png');
+  background-position-x: center;
+  background-repeat: no-repeat; 
+  height: 215px;
 }
-.seals span, .seals a {
-  color: white;
-  text-shadow: 0px 0px 4px black;
-}
-.seals > span {
-  max-width: 150px;
+
+a.seals {
   display: inline-block;
-  vertical-align: top;
-  border-width: 0 0 0 2px;
-  border-color: white;
-  border-style: solid;
-  padding-left: 5px;
-  padding-right: 5px;
-  height: 42px;
-  margin-bottom:10px;
+  width: 60px;
+  height: 60px;
+  background-position-x: center;
+  background-repeat: no-repeat; 
 }
-.seals a {
-  text-decoration: underline;
+a.seals:hover {
+  background-color: rgba(0,0,0,0.3) !important;
 }
-.trusted-pros, .homestars {
-  background-color: white;
-  border-radius: 5px;
+
+.bbb-logo {
+  background-image: url('../images/bbb-logo.png');
 }
+.facebook-logo {
+  background-image: url('../images/facebook-logo.png');
+}
+.google-logo {
+  background-image: url('../images/google-logo.png');
+}
+.homestars-logo {
+  background-image: url('../images/homestars-logo.png');
+}
+.toronto-logo {
+  background-image: url('../images/toronto-logo.png');
+}
+.trusted-pros-logo {
+  background-image: url('../images/trusted-pros-logo.png');
+}
+
 
 .window-left {
   position: absolute;
@@ -286,33 +284,10 @@ a.content-button {
   bottom: 23px;
 }
 
-.window.title {
-  min-height: 200px;
-  margin-bottom: 70px;
-  background: url('../images/bathroom-title.jpg') no-repeat center -20px;
-}
-
-.logo-title {
-  background: url('../images/logo-text.png') no-repeat center center;
-  height: 200px;
-  margin: 0 22px;
-  position: relative;
-  background-size: contain;
-}
-
-.logo-title > span {
-  display: inline-block;
-  margin-top: 143px;
-  font-weight: bold;
-  width: 50%;
-  padding-left: 35%;
-
-}
-
 /* CONTENT CONTAINERS */
 
 .main-menu-container {
-  padding: 53px 170px 53px 170px;
+  padding: 0px 170px 53px 170px;
 }
 
 .content-container {
@@ -341,33 +316,7 @@ a.content-button {
 .content-card {
   padding: 3%;
   box-shadow: 3px 3px 5px #505050;
-  background-color: rgb(255, 255, 255) transparent;
   background-color: rgba(255,255,255,0.7);
-  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#BBFFFFFF,
-                                                    endColorstr=#BBFFFFFF);
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(
-      startColorstr=#BBFFFFFF, endColorstr=#BBFFFFFF)";
-}
-
-.rel-header {
-  display: block;
-  with: 100%;
-  border: 1px solid #999999;
-  border-width: 0 0 1px 0;
-  margin-bottom: 3px;
-  font-size: 0.8em;
-}
-
-a.related {
-  background-color: #333333;
-  display: inline-block;
-  padding: 6px;
-  color: white;
-  margin-bottom: 4px;
-}
-
-.content-card > a:hover {
-  background-color: black;
 }
 
 /* SERVICES PAGE */
@@ -391,14 +340,6 @@ a.related {
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-div.sm-right ul {
-  float: right;
-}
-
-div.sm-right div {
-  margin-left: 0;
 }
 
 /* Service Pages */
@@ -443,26 +384,6 @@ div.two-card {
 
 div.one-card.right {
   margin-left: 31%;
-}
-
-@media (max-width: 840px) {
-  div.two-card-img {
-    width: 30%;
-  }
-
-  div.two-card-img.right {
-    display: none;
-  }
-
-  div.two-card {
-    width: 63%;
-    margin-left: 31%;
-  }
-
-  div.one-card ul, div.two-card ul, div.zero-card ul,
-  div.one-card ol, div.two-card ol, div.zero-card ol{
-    padding-left: 20px;
-  }
 }
 
 /* Basement Plumbing */
@@ -573,28 +494,42 @@ div.water-fountain {
 /* MAIN MENU */
 
 ul.main-menu {
-  width: 300px;
+  width: 360px;
   margin: 0 auto;
+  text-align: center;
 }
 
 ul.main-menu li {
-  margin: 5px 0;
+  margin: 1px 0;
 }
 
-ul.main-menu a, ul.main-menu span {
-  font-size: 26px;
+ul.main-menu li:first-of-type {
+  margin: 0px 0px 10px 0px;
+}
+
+ul.main-menu li:last-of-type {
+  margin: 10px 0px 0px 0px;
+}
+
+ul.main-menu li > a {
+  font-size: 24px;
   padding: 20px;
-  text-shadow: none;
 }
 
-ul.main-menu a:hover {
-  background:black;
+ul.main-menu li > span {
+  padding: 10px;
+  font-size: 16px;
 }
 
-@media (max-width: 840px) {
+.contact-buttons a {
+  display: block;
+  padding: 10px;
+}
+
+@media (max-width: 880px) {
   /* main container adjustments */
   .main-menu-container {
-    padding: 53px 23px 23px 23px;
+    padding: 0px 23px 23px 23px;
   }
 
   .window-top-left, .window-top-right, .window-bottom-left,
@@ -607,10 +542,7 @@ ul.main-menu a:hover {
   }
 
   ul.main-menu {
-    width: 95%;
-  }
-  ul.main-menu a, ul.main-menu span {
-    font-size: 24px;
+    width: 75%;
   }
 
   /* detailed container adjustments */
@@ -645,5 +577,32 @@ ul.main-menu a:hover {
     margin-top: 140px;
     padding-left: 30%;
 
+  }
+
+  div.two-card-img {
+    width: 30%;
+  }
+
+  div.two-card-img.right {
+    display: none;
+  }
+
+  div.two-card {
+    width: 63%;
+    margin-left: 31%;
+  }
+
+  div.one-card ul, div.two-card ul, div.zero-card ul,
+  div.one-card ol, div.two-card ol, div.zero-card ol{
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 550px) {
+  .hide-tiny-screen {
+    display: none !important;  
+  }
+  ul.main-menu {
+    width: 94%;
   }
 }

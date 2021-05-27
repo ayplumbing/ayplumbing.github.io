@@ -21,15 +21,6 @@ function siteReady() {
   } else {
     $(window).on('hashchange', hashChanged);
   }
-  $('ul.slimmenu').slimmenu(
-  {
-    resizeWidth: '800',
-    collapserTitle: document.title.split(' | ')[0],
-    easingEffect:'easeInOutQuint',
-    animSpeed:'medium',
-    indentChildren: true,
-    childrenIndenter: '&raquo;'
-  });
 }
 
 function hashChanged() {
@@ -79,15 +70,6 @@ function loadPage(page) {
     $('#'+container).append(content);
     // Bootstrap links and navigation menus
     $('#'+page).find('a').not('.goto').each(bootstrapNavigationLinks);
-    $('#'+page).find('ul.slimmenu').slimmenu(
-      {
-        resizeWidth: '80000',
-        collapserTitle: page,
-        easingEffect:'easeInOutQuint',
-        animSpeed:'medium',
-        indentChildren: true,
-        childrenIndenter: '&raquo;'
-      });
     if (inMainContainer != isMain) {
       $('#'+container).children().stop().hide();
       $('#'+page).stop().show();
