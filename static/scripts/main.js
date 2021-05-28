@@ -1,7 +1,12 @@
-$().ready(siteReady)
+var mainContainer = 'main-menu-container';
+var contentContainer = 'content-container';
+var mainPage = 'main-menu';
+var isMain = true;
 var inTransition = false;
 var pageToTransition = null;
-var listeningToMouseWheel = false;
+var startingPage = '';
+
+$().ready(siteReady)
 
 function getHashPage() {
   var page = '';
@@ -11,9 +16,9 @@ function getHashPage() {
   }
   return page;
 }
-var startingPage = getHashPage();
 
 function siteReady() {
+  startingPage = getHashPage();
   isMain = !($(".main-container").hasClass('hidden-container'));
   $('body').find('a').each(bootstrapNavigationLinks);
   if (startingPage) {
@@ -51,7 +56,11 @@ function loadPage(page) {
     return;
   }
   transitionStarted(page);
-  var container = pageToContainer[page];
+  if (page == mainPage) {
+    container = mainContainer;
+  } else {
+    container = contentContainer;
+  }
   var inMainContainer = container == mainContainer;
   if (inMainContainer != isMain) {
     $('#'+container).children().stop().hide();
@@ -63,7 +72,7 @@ function loadPage(page) {
 }
 
 function toggleSubPage(container, page) {
-  if (container == 'content-container') {
+  if (container == contentContainer) {
     var detailed_container = $('.detailed-container');
     var current_subpage = $('#'+container).children(':visible');
     var next_subpage = $('#'+page);
@@ -98,27 +107,34 @@ function toggleSubPage(container, page) {
   }
 }
 
+function alignTopBrickOffset(topPosition) {
+  var topBrickOffset = topPosition % 72;
+  return topPosition - topBrickOffset;
+}
+
 function togglePage() {
-  $('body, html').scrollTop(0);
   var detailedContainer = $('.detailed-container');
   var mainContainer = $('.main-container');
   var fromPage = isMain ? mainContainer : detailedContainer;
   var toPage = isMain ? detailedContainer : mainContainer;
-  fromPage.css({'height' : '100%', 'overflow' : 'hidden'});
+  toPage.css('height', fromPage.height());
   if (isMain) {
     toPage.css('left', '100%');
   }
   fromPage.animate({'left' : isMain ? '-100%' : '100%'},
-                   {'duration' : 1000, 'complete' : function() {
+                   {'duration' : 800, 'complete' : function() {
     if (toPage == mainContainer) {
       fromPage.css('left', '-100%');
     }
   }});
   toPage.animate({'left' : '0%'},
-                 {'duration' : 1000, 'complete' : function() {
-    toPage.css({'height' : 'auto', 'overflow' : 'auto'});
-    isMain = !isMain;
-    transitionEnded();
+                 {'duration' : 800, 'complete' : function() {
+    $(document.scrollingElement).animate({'scrollTop' : 0},
+                            {'duration' : 200, 'complete': function() {
+      toPage.css({'height' : 'auto', 'overflow' : 'auto', 'top' : 0});
+      isMain = !isMain;
+      transitionEnded();
+    }});
   }});
 }
 
