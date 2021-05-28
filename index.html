@@ -9,6 +9,7 @@
     <link href="static/styles/default.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/shell.js"></script>
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
      href="static/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114"
@@ -67,11 +68,9 @@
                   Contact us:<br/><br/>
                   <a href="tel:14168357986">416-835-7986</a>
                   <a href="mailto:mail@ayplumbing.ca">mail@ayplumbing.ca</a>
+                  <a href="#!contact-form">Online Form</a>
                 </span>
               </li>
-              <!--<li><a href="#!construction-and-renovations">New Home &amp; Renovation Plumbing</a></li>
-    			    <li><a href="tel:14168357986">416-835-7986 📞</a></li>
-              <li><a href="mailto:mail@ayplumbing.ca">mail@ayplumbing.ca</a></li>-->
     			  </ul>
             <br/>
     			</div>
@@ -84,6 +83,20 @@
       <div class="detailed-container-left"></div>
       <div class="detailed-container-right"></div>
       <div id="content-container" class="content-container">
+        <div id="contact-form">
+          <div class="content-section">
+            <div class="content-card">
+              <a href="#!main-menu" class="content-button">Back to Menu</a><br/><br/>
+              <script>
+                hbspt.forms.create({
+                  region: "na1",
+                  portalId: "20134078",
+                  formId: "325fbecf-ebd1-4f99-a837-3c094587654e"
+                });
+              </script>
+            </div>
+          </div>
+        </div>
         <div id="services">
           <div class="content-section">
             <div class="content-card fading-tap">
@@ -289,6 +302,7 @@
        'main-menu' : 'main-menu-container',
        'services' : 'content-container',
        'bathroom-plumbing-services' : 'content-container',
+       'contact-form' : 'content-container',
        'kitchen-plumbing-services' : 'content-container',
        'basement-plumbing-services' : 'content-container',
        'drain-services' : 'content-container',

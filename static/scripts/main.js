@@ -53,31 +53,13 @@ function loadPage(page) {
   transitionStarted(page);
   var container = pageToContainer[page];
   var inMainContainer = container == mainContainer;
-  if ($('#'+page).length > 0 ){
-    // Already loaded.
-    if (inMainContainer != isMain) {
-      $('#'+container).children().stop().hide();
-      $('#'+page).stop().show();
-      togglePage();
-    } else {
-      toggleSubPage(container, page);
-    }
-    return;
+  if (inMainContainer != isMain) {
+    $('#'+container).children().stop().hide();
+    $('#'+page).stop().show();
+    togglePage();
+  } else {
+    toggleSubPage(container, page);
   }
-  $.get('pages/'+page+'.html', function(pageHTML) {
-    var content = $($.parseHTML(pageHTML));
-    content.hide();
-    $('#'+container).append(content);
-    // Bootstrap links and navigation menus
-    $('#'+page).find('a').not('.goto').each(bootstrapNavigationLinks);
-    if (inMainContainer != isMain) {
-      $('#'+container).children().stop().hide();
-      $('#'+page).stop().show();
-      togglePage();
-    } else {
-      toggleSubPage(container, page);
-    }
-  });
 }
 
 function toggleSubPage(container, page) {
