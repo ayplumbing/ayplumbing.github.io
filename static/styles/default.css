@@ -155,12 +155,6 @@ a.content-button {
   max-width: 1200px;
   margin: 40px auto;
 }
-.welcome-sign {
-  background-image: url('../images/welcome-sign.png');
-  background-position-x: center;
-  background-repeat: no-repeat; 
-  height: 215px;
-}
 
 a.seals {
   display: inline-block;
@@ -192,6 +186,15 @@ a.seals:hover {
   background-image: url('../images/trusted-pros-logo.png');
 }
 
+.welcome-sign {
+  position: absolute;
+  background-image: url('../images/welcome-sign.png');
+  background-position-x: center;
+  background-repeat: no-repeat; 
+  height: 202px;
+  top: 0px;
+  width: 100%;
+}
 
 .window-left {
   position: absolute;
@@ -497,6 +500,7 @@ ul.main-menu {
   width: 360px;
   margin: 0 auto;
   text-align: center;
+  padding-top: 165px;
 }
 
 ul.main-menu li {
@@ -535,14 +539,6 @@ ul.main-menu li > span, .contact-buttons a {
   .window-bottom-right, .window-left-continue, .window-right-continue {
      display:none; 
    }
-  
-  .window {
-    width : 95%;
-  }
-
-  ul.main-menu {
-    width: 75%;
-  }
 
   /* detailed container adjustments */
   .detailed-container-left-pipe {
@@ -595,13 +591,43 @@ ul.main-menu li > span, .contact-buttons a {
   div.one-card ol, div.two-card ol, div.zero-card ol{
     padding-left: 20px;
   }
+
+  .window {
+    width : 90%;
+  }
+
+  ul.main-menu {
+    width: 80%;
+  }
 }
 
-@media (max-width: 550px) {
-  .hide-tiny-screen {
+@media (max-width: 560px) {
+  /*.hide-tiny-screen {
     display: none !important;  
+  }*/
+  .window {
+    width : 95%;
   }
   ul.main-menu {
     width: 94%;
   }
 }
+
+@media (max-width: 440px) {
+  /*.hide-super-tiny-screen {
+    display: none !important;  
+  }*/
+  .hide-tiny-screen {
+    display: none !important;  
+  }
+}
+
+@media (max-width: 365px) {
+  .hide-super-tiny-screen {
+    display: none !important;  
+  }
+  ul.main-menu {
+    width: 99%;
+  }
+}
+
