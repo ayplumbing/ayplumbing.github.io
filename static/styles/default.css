@@ -529,6 +529,11 @@ ul.main-menu li > span, .contact-buttons a {
   display: block;
 }
 
+.legal-blurb, .legal-blurb a {
+  color: lightgray;
+  text-align: center;
+}
+
 @media (max-width: 880px) {
   /* main container adjustments */
   .main-menu-container {
