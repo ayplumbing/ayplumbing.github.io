@@ -1,0 +1,9 @@
+cp index.html basement-plumbing-services/index.html
+cp index.html basement-waterproofing/index.html
+cp index.html bathroom-plumbing-services/index.html
+cp index.html construction-and-renovations/index.html
+cp index.html contact-form/index.html
+cp index.html drain-services/index.html
+cp index.html kitchen-plumbing-services/index.html
+cp index.html privacy-policy/index.html
+cp index.html services/index.html

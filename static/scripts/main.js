@@ -4,47 +4,42 @@ var mainPage = 'main-menu';
 var isMain = true;
 var inTransition = false;
 var pageToTransition = null;
-var startingPage = '';
 
 $().ready(siteReady)
 
-function getHashPage() {
-  var page = '';
-  if (window.location.hash && (window.location.hash.indexOf('#!') == 0 ||
-                               window.location.hash.indexOf('!') == 0)) {
-    page = window.location.hash.replace(/^#?!/, '');
-  }
-  return page;
+function getPage() {
+  return window.location.pathname.replaceAll('/', '') || mainPage;
 }
 
 function siteReady() {
-  startingPage = getHashPage();
   isMain = !($(".main-container").hasClass('hidden-container'));
   $('body').find('a').each(bootstrapNavigationLinks);
-  if (startingPage) {
-    loadPage(startingPage);
-  } else {
-    $(window).on('hashchange', hashChanged);
+  window.addEventListener('popstate', pageChanged);
+  if (getPage() != mainPage) {
+    pageChanged();
   }
 }
 
-function hashChanged() {
-  var page = getHashPage() || mainPage;
-  loadPage(page);
+function pageChanged() {
+  loadPage(getPage());
 }
 
 function bootstrapNavigationLinks() {
   var href = $(this).attr('href');
-  if (href.indexOf('#!') == 0) {
+  if (!href.includes('http')) {
     $(this).on('click', navigationClick);
   }
 }
 
 function navigationClick(event) {
+  event.preventDefault();
   if (inTransition) {
-    event.preventDefault();
     return;
   }
+  const hrefUrl = event.target.getAttribute('href');
+  window.history.pushState({}, window.title, hrefUrl);
+  pageChanged();
+
 }
 
 function htmlDecode(value){ 
@@ -140,16 +135,13 @@ function togglePage() {
 
 function transitionStarted(page) {
   pageToTransition = page;
-  $(window).off('hashchange', hashChanged);
   inTransition = true;
 }
 
 function transitionEnded() {
   inTransition = false;
-  var page = getHashPage() || mainPage;
+  var page = getPage();
   if (page != pageToTransition) {
     loadPage(page);
-  } else {
-    $(window).on('hashchange', hashChanged);
   }
 }
