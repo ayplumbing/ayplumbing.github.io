@@ -330,6 +330,7 @@ a.seals:hover {
   background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: rgba(239, 239, 239, 1);
 }
 
 .fading-house {
@@ -344,6 +345,18 @@ a.seals:hover {
   background-position: right;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.bathroom {
+  background-image: url('../images/bathroom-bg.jpg');
+}
+
+.fading-tap-small {
+  background-image: url('../images/fading-tap-small.png');
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(239, 239, 239, 1);
 }
 
 /* Service Pages */
@@ -388,6 +401,16 @@ div.two-card {
 
 div.one-card.right {
   margin-left: 31%;
+}
+
+/* Water Filters */
+
+div.reverse-osmosis {
+  background-image: url('../images/reverse-osmosis-filter.jpg');
+}
+
+div.clean-water {
+  background-image: url('../images/clean-water.jpg');
 }
 
 /* Basement Plumbing */
