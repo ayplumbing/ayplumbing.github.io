@@ -42,6 +42,10 @@ const page_metadata = {
     "title": "Plumbing Services - A & Y Plumbing",
     "description": "Need a plumber? We offer a variety of services, ranging from in-home plumbing repairs to larger scale projects. Call us any time at 416-835-7986 to ask questions or schedule in an appointment."
   },
+  "water-filters": {
+    "title": "Water Filters - A & Y Plumbing",
+    "description": "Need a reverse osmosis system, or a full house water purification system? Call us any time at 416-835-7986 to ask questions or schedule in an appointment."
+  },
 };
 
 let isMain = true;

@@ -16,3 +16,5 @@ cp index.html privacy-policy/index.html
 sed -i '' 's/<title>[^<]*/<title>Privacy Policy - A \& Y Plumbing/' privacy-policy/index.html
 cp index.html services/index.html
 sed -i '' 's/<title>[^<]*/<title>Plumbing Services - A \& Y Plumbing/' services/index.html
+cp index.html water-filters/index.html
+sed -i '' 's/<title>[^<]*/<title>Water Filters - A \& Y Plumbing/' water-filters/index.html
