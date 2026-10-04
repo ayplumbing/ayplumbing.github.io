@@ -9,7 +9,6 @@
     <link href="/static/styles/default.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="https://js.hsforms.net/forms/embed/49086709.js" defer></script>
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
      href="/static/images/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114"
@@ -105,7 +104,7 @@
       <div class="welcome-sign"></div>
       <div class="legal-blurb">
         <a href="/privacy-policy/">Privacy Policy</a><br/>
-        © Copyright 2023 A & Y Plumbing Inc. - All Rights Reserved<br/>
+        © Copyright <span id="copyright-year">2026</span> A & Y Plumbing Inc. - All Rights Reserved<br/>
       </div>
     </div>
     <div class="detailed-container hidden-container">
@@ -128,7 +127,126 @@
           <div class="content-section">
             <div class="content-card">
               <a href="/" class="content-button">Back to Menu</a><br/><br/>
-              <div class="hs-form-frame" data-region="na1" data-form-id="667118b8-bb68-497f-ae61-c8145380fe38" data-portal-id="49086709"></div>
+              <h2>Send us a message</h2>
+              <p id="contact-form-help" class="contact-form-help">
+                Your name and what you need help with are required. Please provide an email address or phone number so we can reply. Your address is optional.
+              </p>
+              <form id="web3forms-contact" class="contact-form" action="https://api.web3forms.com/submit" method="POST" aria-describedby="contact-form-help">
+                <input type="hidden" name="access_key" value="ef35a3c6-9798-461b-9f24-cd30f47ac59d">
+                <input type="hidden" name="subject" value="New plumbing enquiry from the website">
+
+                <div class="contact-form-field">
+                  <label for="contact-name">Name (required)</label>
+                  <input id="contact-name" name="name" type="text" autocomplete="name" required>
+                </div>
+
+                <div class="contact-form-field">
+                  <label for="contact-address">Physical address (optional)</label>
+                  <input id="contact-address" name="address" type="text" autocomplete="street-address">
+                </div>
+
+                <div class="contact-form-field">
+                  <label for="contact-email">Email address</label>
+                  <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="name@example.com">
+                </div>
+
+                <div class="contact-form-field">
+                  <label for="contact-phone">Phone number</label>
+                  <input id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="416-555-0123" aria-describedby="contact-phone-help">
+                  <small id="contact-phone-help">Include a country code for international numbers.</small>
+                </div>
+
+                <div class="contact-form-field">
+                  <label for="contact-message">What can we help you with? (required)</label>
+                  <textarea id="contact-message" name="message" rows="6" required></textarea>
+                </div>
+
+                <button type="submit">Send message</button>
+              </form>
+              <p id="contact-form-status" class="contact-form-status" role="status" aria-live="polite" tabindex="-1" hidden></p>
+              <script>
+                (function() {
+                  const form = document.getElementById('web3forms-contact');
+                  const email = document.getElementById('contact-email');
+                  const phone = document.getElementById('contact-phone');
+                  const status = document.getElementById('contact-form-status');
+                  const submitButton = form.querySelector('button[type="submit"]');
+
+                  function validatePhone() {
+                    const value = phone.value.trim();
+                    if (!value) {
+                      phone.setCustomValidity('');
+                      return;
+                    }
+
+                    const extensionMatch = value.match(/(?:ext\.?|x)\s*\d+\s*$/i);
+                    const number = extensionMatch ? value.slice(0, extensionMatch.index).trim() : value;
+                    const digits = number.replace(/\D/g, '');
+                    const hasOnlyPhoneCharacters = /^[+\d().\s-]+$/.test(number);
+                    const hasValidInternationalPrefix = number.startsWith('+') && (number.match(/\+/g) || []).length === 1;
+                    const isNorthAmerican = /^1?\d{10}$/.test(digits);
+                    const isInternational = hasValidInternationalPrefix && digits.length >= 7 && digits.length <= 15;
+
+                    phone.setCustomValidity(
+                      hasOnlyPhoneCharacters && (isNorthAmerican || isInternational)
+                        ? ''
+                        : 'Enter a valid phone number, such as 416-555-0123 or +44 20 1234 5678.'
+                    );
+                  }
+
+                  function updateContactRequirement() {
+                    const hasEmail = email.value.trim() !== '';
+                    const hasPhone = phone.value.trim() !== '';
+                    email.required = !hasPhone && !hasEmail;
+                    phone.required = !hasEmail && !hasPhone;
+                  }
+
+                  phone.addEventListener('input', validatePhone);
+                  phone.addEventListener('change', validatePhone);
+                  email.addEventListener('input', updateContactRequirement);
+                  phone.addEventListener('input', updateContactRequirement);
+                  updateContactRequirement();
+
+                  form.addEventListener('submit', async function(event) {
+                    event.preventDefault();
+                    validatePhone();
+                    if (!form.reportValidity()) return;
+
+                    status.hidden = false;
+                    status.classList.remove('is-error');
+                    status.textContent = 'Sending your message…';
+                    submitButton.disabled = true;
+
+                    try {
+                      const response = await fetch(form.action, {
+                        method: 'POST',
+                        headers: {
+                          'Content-Type': 'application/json',
+                          'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+                      });
+                      const result = await response.json();
+
+                      if (!response.ok || !result.success) {
+                        throw new Error(result.message || 'The message could not be sent.');
+                      }
+
+                      submitButton.disabled = false;
+                      phone.setCustomValidity('');
+                      form.reset();
+                      updateContactRequirement();
+                      form.hidden = true;
+                      status.textContent = 'Thank you! Your message has been sent. We’ll be in touch soon.';
+                      status.focus();
+                    } catch (error) {
+                      status.classList.add('is-error');
+                      status.textContent = 'Sorry, we could not send your message right now. Please try again or call us at 416-835-7986.';
+                      submitButton.disabled = false;
+                    }
+                  });
+                }());
+              </script>
             </div>
           </div>
         </div>

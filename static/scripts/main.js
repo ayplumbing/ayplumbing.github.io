@@ -62,7 +62,30 @@ function getPage(url) {
   }
 }
 
+function updateCopyrightYear() {
+  const yearElement = document.getElementById('copyright-year');
+  if (!yearElement) {
+    return;
+  }
+
+  fetch('https://timeapi.io/api/Time/current/zone?timeZone=America%2FToronto')
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Could not retrieve the current year.');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const year = String(data.dateTime || '').slice(0, 4);
+      if (/^\d{4}$/.test(year)) {
+        yearElement.textContent = year;
+      }
+    })
+    .catch(() => {});
+}
+
 function siteReady() {
+  updateCopyrightYear();
   isMain = !($(".main-container").hasClass('hidden-container'));
   $('body').find('a').each(bootstrapNavigationLinks);
   window.addEventListener('popstate', pageChanged);

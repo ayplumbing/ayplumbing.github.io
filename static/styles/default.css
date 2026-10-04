@@ -323,6 +323,74 @@ a.seals:hover {
   background-color: rgba(255,255,255,0.7);
 }
 
+.contact-form-help {
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: grid;
+  gap: 16px;
+  max-width: 640px;
+}
+
+.contact-form-field {
+  display: grid;
+  gap: 6px;
+}
+
+.contact-form-field label {
+  font-family: 'Fresca', sans-serif;
+  font-size: 18px;
+}
+
+.contact-form-field input,
+.contact-form-field textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #777;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.95);
+  font-size: 16px;
+}
+
+.contact-form-field textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.contact-form button {
+  justify-self: start;
+  padding: 11px 20px;
+  border: 1px solid #777;
+  background: rgba(255,255,255,0.9);
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+}
+
+.contact-form button:hover {
+  background: white;
+  text-decoration: underline;
+}
+
+.contact-form button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.contact-form-status {
+  max-width: 640px;
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+.contact-form-status.is-error {
+  color: #9b1c1c;
+}
+
 /* SERVICES PAGE */
 
 .fading-tap {
@@ -659,4 +727,3 @@ ul.main-menu li > span, .contact-buttons a {
     width: 99%;
   }
 }
-
