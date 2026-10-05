@@ -4,47 +4,47 @@ const mainPage = 'main-menu';
 const page_metadata = {
   "main-menu": {
     "title": "A & Y Plumbing: Toronto Plumbing, Drain, and Waterproofing Experts",
-    "description": "We offer plumbing, drain, and waterproofing services all around Toronto and the GTA. Call us 24/7 at 416-835-7986 for your free estimate."
+    "description": "Family-owned Toronto plumbers serving Toronto and the GTA since 2001. Plumbing, drains, waterproofing, and water filtration. Call 416-835-7986 for 24/7 service or a free estimate."
   },
   "bathroom-plumbing-services": {
     "title": "Bathroom Plumbing Services - A & Y Plumbing",
-    "description": "Toilets, sink faucets, showers, low water pressure, broken pipes, drain services, we do it all. Call us any time at 416-835-7986 to ask questions or schedule in an appointment."
+    "description": "Bathroom plumbing repairs and installations in Toronto, including toilets, faucets, showers, and drain services."
   },
   "basement-plumbing-services": {
     "title": "Basement & Outdoor Plumbing Services - A & Y Plumbing",
-    "description": "Hose bibb valves, outdoor taps, backwater valves, grease traps, shutoff valves, laundry rooms, sump pumps, we do it all. Call us at 416-835-7986 for your free estimate."
+    "description": "Basement and outdoor plumbing services in Toronto, including sump pumps, backwater valves, laundry connections, and outdoor taps."
   },
   "basement-waterproofing": {
     "title": "Basement Waterproofing - A & Y Plumbing",
-    "description": "Leak prevention, blue skin membranes, window wells, weeping tiles, foundation repair, sump up installations, and more, we do it all. Call us at 416-835-7986 for your free estimate."
+    "description": "Basement waterproofing, foundation repairs, window wells, and weeping tile services in Toronto and the GTA. Call A & Y Plumbing for an estimate."
   },
   "construction-and-renovations": {
     "title": "Construction & Renovations - A & Y Plumbing",
-    "description": "Call us at 416-835-7986 for your free estimate for your next big project."
+    "description": "Plumbing, construction, and renovation services for larger residential projects in Toronto and the GTA. Contact A & Y Plumbing for an estimate."
   },
   "contact-form": {
     "title": "Contact Form - A & Y Plumbing",
-    "description": "Call us at 416-835-7986, email us at mail@ayplumbing.ca, message us on Facebook, or fill out this online form."
+    "description": "Contact A & Y Plumbing for plumbing, drain, waterproofing, and water filtration services in Toronto and the GTA."
   },
   "drain-services": {
     "title": "Drain Services - A & Y Plumbing",
-    "description": "One of our core focuses is cleaning, maintaining, and repairing drain systems. Call us any time at 416-835-7986 to ask questions or schedule in an appointment."
+    "description": "Drain cleaning, inspection, maintenance, and repair services in Toronto and the GTA. Contact A & Y Plumbing for help."
   },
   "kitchen-plumbing-services": {
     "title": "Kitchen Plumbing Services - A & Y Plumbing",
-    "description": "Sink faucets, garburators, dishwashers, grease traps, leaks, low water pressure, we do it all. Call us any time at 416-835-7986 to ask questions or schedule in an appointment."
+    "description": "Kitchen plumbing repairs and installations, including faucets, dishwashers, garburators, and leak detection in Toronto and the GTA."
   },
   "privacy-policy": {
     "title": "Privacy Policy - A & Y Plumbing",
-    "description": "Read our privacy policy here."
+    "description": "Read the A & Y Plumbing privacy policy and learn how we handle information sent through our website."
   },
   "services": {
     "title": "Plumbing Services - A & Y Plumbing",
-    "description": "Need a plumber? We offer a variety of services, ranging from in-home plumbing repairs to larger scale projects. Call us any time at 416-835-7986 to ask questions or schedule in an appointment."
+    "description": "Explore plumbing repairs, drain services, waterproofing, and water filtration from A & Y Plumbing in Toronto and the GTA. Call 416-835-7986."
   },
   "water-filters": {
     "title": "Water Filters - A & Y Plumbing",
-    "description": "Need a reverse osmosis system, or a full house water purification system? Call us any time at 416-835-7986 to ask questions or schedule in an appointment."
+    "description": "Water filtration and reverse osmosis systems for Toronto homes. A & Y Plumbing can help you choose, install, and maintain a system."
   },
 };
 
@@ -60,6 +60,13 @@ function getPage(url) {
   } else {
     return new URL(url, window.location.href).pathname.replaceAll('/', '') || mainPage;
   }
+}
+
+function getPageMetadata(page) {
+  return page_metadata[page] || {
+    title: 'A & Y Plumbing',
+    description: 'A & Y Plumbing serves Toronto and the GTA with plumbing, drain, and waterproofing services.'
+  };
 }
 
 function updateCopyrightYear() {
@@ -96,25 +103,34 @@ function siteReady() {
 
 function pageChanged() {
   const current_page = getPage();
-  $('meta[name="description"]').attr('content', page_metadata[current_page].description);
-  document.title = page_metadata[current_page].title;
+  const metadata = getPageMetadata(current_page);
+  $('meta[name="description"]').attr('content', metadata.description);
+  document.title = metadata.title;
   loadPage(current_page);
 }
 
 function bootstrapNavigationLinks() {
-  var href = $(this).attr('href');
-  if (!href.includes('http')) {
+  const href = $(this).attr('href');
+  if (!href || href.startsWith('#')) {
+    return;
+  }
+  const destination = new URL(href, window.location.href);
+  if (destination.origin === window.location.origin && page_metadata[getPage(destination.href)]) {
     $(this).on('click', navigationClick);
   }
 }
 
 function navigationClick(event) {
+  const hrefUrl = event.currentTarget.getAttribute('href');
+  const nextPage = getPage(hrefUrl);
+  if (!page_metadata[nextPage]) {
+    return;
+  }
   event.preventDefault();
   if (inTransition) {
     return;
   }
-  const hrefUrl = event.target.getAttribute('href');
-  window.history.pushState({}, page_metadata[getPage(hrefUrl)].title, hrefUrl);
+  window.history.pushState({}, getPageMetadata(nextPage).title, hrefUrl);
   pageChanged();
 
 }
@@ -157,13 +173,13 @@ function toggleSubPage(container, page) {
     next_subpage.css({'position':'absolute', 'top':'-'+(new_height+100)+'px',
                       'left':0, 'right':0, 'visibility':'visible'});
     current_subpage.animate({'top':(Math.max(new_height, $(window).height())+120)+'px'},
-                            {'duration':1000, 'easing': 'easeInOutExpo',
+                            {'duration':motionDuration(300), 'easing': 'easeInOutExpo',
                              'complete' : function() {
                                 current_subpage.hide();
                                 current_subpage.css({'position':'static'});
                             }});
     next_subpage.animate({'top':'10px'},
-                         {'duration':1000, 'easing' : 'easeInOutExpo',
+                         {'duration':motionDuration(300), 'easing' : 'easeInOutExpo',
                            'complete': function() {
                              next_subpage.css({'position': 'static',
                                                'height':'auto',
@@ -179,6 +195,12 @@ function toggleSubPage(container, page) {
   }
 }
 
+function motionDuration(duration) {
+  return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ? 0
+    : duration;
+}
+
 function alignTopBrickOffset(topPosition) {
   var topBrickOffset = topPosition % 72;
   return topPosition - topBrickOffset;
@@ -189,20 +211,22 @@ function togglePage() {
   var mainContainer = $('.main-container');
   var fromPage = isMain ? mainContainer : detailedContainer;
   var toPage = isMain ? detailedContainer : mainContainer;
+  fromPage.attr('aria-hidden', 'true');
+  toPage.attr('aria-hidden', 'false');
   toPage.css('height', fromPage.height());
   if (isMain) {
     toPage.css('left', '100%');
   }
   fromPage.animate({'left' : isMain ? '-100%' : '100%'},
-                   {'duration' : 800, 'complete' : function() {
+                   {'duration' : motionDuration(300), 'complete' : function() {
     if (toPage == mainContainer) {
       fromPage.css('left', '-100%');
     }
   }});
   toPage.animate({'left' : '0%'},
-                 {'duration' : 800, 'complete' : function() {
+                 {'duration' : motionDuration(300), 'complete' : function() {
     $(document.scrollingElement).animate({'scrollTop' : 0},
-                            {'duration' : 200, 'complete': function() {
+                            {'duration' : motionDuration(120), 'complete': function() {
       toPage.css({'height' : 'auto', 'overflow' : 'auto', 'top' : 0});
       isMain = !isMain;
       transitionEnded();

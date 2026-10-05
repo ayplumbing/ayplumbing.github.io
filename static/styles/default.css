@@ -12,7 +12,7 @@ html, body {
   text-decoration: underline;
 }
 
-.content-card span, .content-card p, .content-card h2 {
+.content-card h1, .content-card h2 {
   font-family: 'Fresca', sans-serif;
   text-shadow: 0px 0px 4px white;
 }
@@ -78,7 +78,7 @@ a.content-button {
   height: 0;
 }
 
-/* MAIN CONTIANERS */
+/* MAIN CONTAINERS */
 
 .hidden-container {
   left :-100%;
@@ -320,7 +320,59 @@ a.seals:hover {
 .content-card {
   padding: 3%;
   box-shadow: 3px 3px 5px #505050;
-  background-color: rgba(255,255,255,0.7);
+  background-color: rgba(255,255,255,0.88);
+}
+
+.content-card h1,
+.content-card h2 {
+  line-height: 1.2;
+}
+
+.content-card p {
+  max-width: 70ch;
+  line-height: 1.65;
+}
+
+.content-card ul,
+.content-card ol {
+  line-height: 1.6;
+}
+
+.home-title {
+  margin: 0 auto 12px;
+  font-family: 'Fresca', sans-serif;
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.1;
+  text-shadow: 0 1px 2px white;
+}
+
+.home-intro {
+  display: block;
+  padding: 10px;
+  border: 1px solid transparent;
+  background-color: rgba(255, 255, 255, 0.92);
+  text-align: center;
+}
+
+.home-intro-copy {
+  max-width: 42ch;
+  margin: 0 auto 16px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.home-actions .content-button {
+  margin: 0;
+  padding: 10px 12px;
+  font-size: 14px;
+  letter-spacing: 0.04em;
 }
 
 .contact-form-help {
@@ -389,6 +441,14 @@ a.seals:hover {
 
 .contact-form-status.is-error {
   color: #9b1c1c;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #1558a6;
+  outline-offset: 3px;
 }
 
 /* SERVICES PAGE */
@@ -707,6 +767,31 @@ ul.main-menu li > span, .contact-buttons a {
   }
   ul.main-menu {
     width: 94%;
+  }
+}
+
+@media (max-width: 600px) {
+  .content-section {
+    padding-left: 18px;
+    padding-right: 10px;
+  }
+
+  div.one-card,
+  div.two-card {
+    box-sizing: border-box;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  div.one-card-img,
+  div.two-card-img:not(.right) {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    min-height: 190px;
+    margin-top: 12px;
   }
 }
 

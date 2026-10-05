@@ -2,13 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Contact Form - A & Y Plumbing</title>
+    <title>Contact Form - A &amp; Y Plumbing</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="We offer plumbing, drain, and waterproofing services all around Toronto and the GTA. Call us 24/7 at 416-835-7986 for your free estimate.">
+    <meta name="description" content="Contact A &amp; Y Plumbing for plumbing, drain, waterproofing, and water filtration services in Toronto and the GTA.">
     <meta name="author" content="A &amp; Y Plumbing">
     <link href="/static/styles/default.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
      href="/static/images/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114"
@@ -58,7 +59,7 @@
       }(document, 'script', 'facebook-jssdk'));
     </script>
 
-    <div class="main-container">
+    <div class="main-container" aria-hidden="false">
       <div class="window">
         <div class="window-left"></div>
         <div class="window-right"></div>
@@ -74,15 +75,20 @@
           <div id="main-menu">
     			  <ul class="main-menu menu strip-default">
               <li>
-                <span>
-                  A &amp; Y Plumbing is a family-owned plumbing, drain, and waterproofing business, headquartered in Toronto, happily serving the GTA since 2001. What distinguishes us is our commitment to quality, flexibility, and thoroughness.<br/><br/>
-                  <a href="https://goo.gl/maps/3NmLvZ6WkssTgfxC9" class="google-logo seals" target="_blank" title="Check us out on Google Maps"></a>
-                  <a href="https://www.facebook.com/plumbersintoronto" class="hide-super-tiny-screen facebook-logo seals" target="_blank" title="Check us out on Facebook"></a>
-                  <a href="https://homestars.com/companies/2778342-a-and-y-plumbing" class="homestars-logo seals hide-tiny-screen" target="_blank" title="A &amp; Y Plumbing on HomeStars"></a>
-                  <a href="https://secure.toronto.ca/LicenceStatus/search.do?tradeNo=P21703" class="toronto-logo seals" target="_blank" title="City of Toronto License"></a>
+                <div class="home-intro">
+                  <h1 class="home-title">Toronto Plumbing, Drain &amp; Waterproofing</h1>
+                  <p class="home-intro-copy">Family-owned and serving Toronto and the GTA since 2001. Call us 24/7 for plumbing emergencies or request a free estimate.</p>
+                  <div class="home-actions">
+                    <a class="content-button" href="tel:14168357986">Call 416-835-7986</a>
+                    <a class="content-button" href="/contact-form/">Request an estimate</a>
+                  </div><br/><br/>
+                  <a href="https://goo.gl/maps/3NmLvZ6WkssTgfxC9" class="google-logo seals" aria-label="Check us out on Google Maps" target="_blank" rel="noopener noreferrer" title="Check us out on Google Maps"></a>
+                  <a href="https://www.facebook.com/plumbersintoronto" class="hide-super-tiny-screen facebook-logo seals" aria-label="Check us out on Facebook" target="_blank" rel="noopener noreferrer" title="Check us out on Facebook"></a>
+                  <a href="https://homestars.com/companies/2778342-a-and-y-plumbing" class="homestars-logo seals hide-tiny-screen" aria-label="A & Y Plumbing on HomeStars" target="_blank" rel="noopener noreferrer" title="A &amp; Y Plumbing on HomeStars"></a>
+                  <a href="https://secure.toronto.ca/LicenceStatus/search.do?tradeNo=P21703" class="toronto-logo seals" aria-label="City of Toronto plumbing license" target="_blank" rel="noopener noreferrer" title="City of Toronto License"></a>
                   <br/><br/>
-                  <a target="_blank" title="See our Business Review of A and Y Plumbing on BBB" href="https://www.bbb.org/ca/on/north-york/profile/plumber/ay-plumbing-0107-1219189#sealclick"><img style="border: 0" alt="Click to see our BBB Business Review" src="/static/images/bbb.png" /><!--<img style="border: 0" alt="Click to see our BBB Business Review" src="https://seal-mwco.bbb.org/seals/blue-seal-200-42-aandyplumbing-1219189.png" />--></a>
-                </span>
+                  <a target="_blank" rel="noopener noreferrer" title="See our Business Review of A and Y Plumbing on BBB" href="https://www.bbb.org/ca/on/north-york/profile/plumber/ay-plumbing-0107-1219189#sealclick"><img style="border: 0" alt="Click to see our BBB Business Review" src="/static/images/bbb.png" /><!--<img style="border: 0" alt="Click to see our BBB Business Review" src="https://seal-mwco.bbb.org/seals/blue-seal-200-42-aandyplumbing-1219189.png" />--></a>
+                </div>
               </li>
               <li><a href="/services/">Plumbing &amp; Drainage</a></li>
               <li><a href="/water-filters/">Water Filtration</a></li>
@@ -107,7 +113,7 @@
         © Copyright <span id="copyright-year">2026</span> A & Y Plumbing Inc. - All Rights Reserved<br/>
       </div>
     </div>
-    <div class="detailed-container hidden-container">
+    <div class="detailed-container hidden-container" aria-hidden="true">
       <div class="detailed-container-left-pipe"></div>
       <div class="detailed-container-right-pipe"></div>
       <div class="detailed-container-left"></div>
@@ -117,9 +123,10 @@
           <div class="content-section">
             <div class="content-card">
               <a href="/" class="content-button">Back to Menu</a><br/><br/>
-              Our Commitment to Privacy:<br/>
-              We take customer privacy seriously and do not sell or give out any customer information. We do not keep a mailing list nor
-              distribute a newsletter.
+              <h1>Privacy Practices</h1>
+              <p>When you contact us by phone, email, or online form, we use the information you provide to respond and provide the requested service. We do not sell personal information or send marketing newsletters.</p>
+              <p>Online form submissions are processed by Web3Forms and delivered to us by email. Web3Forms may retain submissions under its own privacy practices; please review the <a href="https://web3forms.com/privacy" target="_blank" rel="noopener noreferrer">Web3Forms Privacy Policy</a>.</p>
+              <p>We use Google Analytics to understand website traffic. Google may collect usage information when you browse our website.</p>
             </div>
           </div>
         </div>
@@ -127,7 +134,7 @@
           <div class="content-section">
             <div class="content-card">
               <a href="/" class="content-button">Back to Menu</a><br/><br/>
-              <h2>Send us a message</h2>
+              <h1>Send us a message</h1>
               <p id="contact-form-help" class="contact-form-help">
                 Your name and what you need help with are required. Please provide an email address or phone number so we can reply. Your address is optional.
               </p>
@@ -247,6 +254,7 @@
                   });
                 }());
               </script>
+
             </div>
           </div>
         </div>
@@ -255,10 +263,10 @@
             <div class="relative">
               <div class="content-card one-card">
                 <a href="/" class="content-button">Back to Menu</a><br/><br/>
-                <h2>Standard Home Services</h2>
+                <h1>Standard Home Services</h1>
                 <p>A &amp; Y Plumbing offers a wide variety of services, ranging from
                 in-home plumbing repairs to larger scale projects. Our in-home services include 
-                repairs, installations, and drain services. We prize ourselves on being <span class="u">quick</span> and
+                repairs, installations, and drain services. We pride ourselves on being <span class="u">quick</span> and
                 <span class="u">flexible</span>, and also offering late-night <span class="u">emergency services</span>.<br/><br/>
                 So, which part of your home can we help you with?
                 </p>
@@ -280,7 +288,7 @@
             <div class="relative">
               <div class="content-card one-card">
                 <a href="/" class="content-button">Back to Menu</a><br/><br/>
-                <h2>Kitchen Plumbing Services</h2>
+                <h1>Kitchen Plumbing Services</h1>
                 <p>Have an emergency? Then don't hesitate to call us at <a href="tel:14168357986">416-835-7986</a> ASAP. Otherwise take a
                    look at some of the sample kitchen plumbing services that we offer, and feel free to shoot us an email
                    (<a href="mailto:mail@ayplumbing.ca">mail@ayplumbing.ca</a>) or call at any time.
@@ -305,7 +313,7 @@
           <div class="content-section">
             <div class="content-card fading-drain">
               <a href="/" class="content-button">Back to Menu</a><br/><br/>
-              <h2>Drainage Problems &amp; Improvements</h2>
+              <h1>Drainage Problems &amp; Improvements</h1>
               <p>Have an emergency? Then don't hesitate to call us at <a href="tel:14168357986">416-835-7986</a> or email
                 <a href="mailto:mail@ayplumbing.ca">mail@ayplumbing.ca</a> ASAP.
               </p>
@@ -323,7 +331,7 @@
           <div class="content-section">
             <div class="content-card fading-house">
               <a href="/" class="content-button">Back to Menu</a><br/><br/>
-              <h2>Larger Construction &amp; Renovation Projects</h2>
+              <h1>Large Plumbing &amp; Renovation Projects</h1>
               <p>Some of our larger scale projects involve
                 renovation projects and new construction site plumbing. We are always
                 happy to provide a free estimate to determine if our company is
@@ -340,7 +348,7 @@
             <div class="relative">
               <div class="content-card one-card">
                 <a href="/" class="content-button">Back to Menu</a><br/><br/>
-                <h2>Bathroom Plumbing Services</h2>
+                <h1>Bathroom Plumbing Services</h1>
                 <p>Have an emergency? Then don't hesitate to call us at <a href="tel:14168357986">416-835-7986</a> ASAP. Otherwise take a
                    look at some of the sample bathroom plumbing services that we offer, and feel free to shoot us an email
                    (<a href="mailto:mail@ayplumbing.ca">mail@ayplumbing.ca</a>) or call at any time.
@@ -365,12 +373,12 @@
             <div class="relative">
               <div id="waterproofing-intro" class="content-card zero-card">
               </ul>
-                <h2>Leaky Basement?</h2>
+                <h1>Basement Waterproofing in Toronto</h1>
                 <p>
                   You can tell if it is raining outside as soon as you leave your house.
                   With a leaky basement, you can tell what the weather is outside without
                   looking out the window or turning on the TV. By taking appropriate
-                  action, you can ensure a warm and dry basement, irregardless of the
+                  action, you can ensure a warm and dry basement, regardless of the
                   conditions outside of your home.<br/><br/>
                   There are many suitable waterproofing systems available to you now, and a
                   specific combination of these methods will be best for your basement.
@@ -418,12 +426,12 @@
               <div id="waterproofing-results" class="content-card zero-card">
                 <h2>Benefits of Waterproofing</h2>
                 <ol>
-                  <li><span>A reliable foundation.</span></li>
-                  <li><span>Combined with Insulation, it saves money on your utility bills.</span>
+                  <li><span>Can help protect the foundation from water intrusion.</span></li>
+                  <li><span>When paired with appropriate insulation, waterproofing can help reduce heat loss and energy costs.</span>
                   </li>
-                  <li><span>It increases the value of your home.</span></li>
-                  <li><span>A warm and dry basement throughout the year.</span></li>
-                  <li><span>A fresher and healthier environment for your family.</span></li>
+                  <li><span>A dry, usable basement can be a positive feature for future buyers.</span></li>
+                  <li><span>A basement that is more comfortable through changing seasons.</span></li>
+                  <li><span>A drier, more comfortable basement for your household.</span></li>
                 </ul>
               </div>
             </div>
@@ -433,7 +441,7 @@
           <div class="content-section">
             <div class="content-card fading-house">
               <a href="/" class="content-button">Back to Menu</a><br/><br/>
-              <h2>Basement &amp; Outdoor Plumbing Services</h2>
+              <h1>Basement &amp; Outdoor Plumbing Services</h1>
               <p>Have an emergency? Then don't hesitate to call us at <a href="tel:14168357986">416-835-7986</a> ASAP. Otherwise take a
                  look at some of the sample basement &amp; outdoor plumbing services that we offer, and feel free to shoot us an email
                  (<a href="mailto:mail@ayplumbing.ca">mail@ayplumbing.ca</a>) or call at any time.
@@ -459,12 +467,12 @@
           <div class="content-section">
             <div class="content-card">
               <a href="/" class="content-button">Back to Menu</a><br/><br/>
-              <h2>Water Filtration Systems &amp; Installations</h2>
+              <h1>Water Filtration Systems for Your Home</h1>
               <p>
-                At A &amp; Y Plumbing, we pride ourselves in our ability to find and install the perfect water filtration system for your home.
+                We can help you choose and install a water filtration system suited to your home.
                 Whether you need a localized reverse osmosis system for a tap on your kitchen counter or in your fridge, or whether you want a
-                solution that works for your whole home, we've got you covered. We are able to supply top quality filters for your home, or
-                install an already purchases system. We also help replace filters for your yearly maintanance. Don't hesitate to call us at
+                solution that works for your whole home, we've got you covered. We can supply filters for your home or
+                install a filtration system you already own. We can also replace filters as part of routine maintenance. Don't hesitate to call us at
                 <a href="tel:14168357986">416-835-7986</a> or email us at (<a href="mailto:mail@ayplumbing.ca">mail@ayplumbing.ca</a>) to learn
                 more.
               </p>
@@ -475,18 +483,15 @@
               <div class="content-card one-card">
                 <h2>Reverse Osmosis Filters</h2>
                 <p>
-                  Reverse Osmosis (RO) is a water filtration process where drinking water, containing undesirable dissolved solids, is run through
-                  a membrane. The water then goes to a storage tank while the unwanted inorganic compounds, sediment and other contaminants
-                  are flushed down the drain. This form of water treatment is one of the most effective methods for producing high quality drinking
-                  water. Generally, these filters involve the following stages:
+                  Reverse osmosis (RO) pushes water through a semi-permeable membrane to reduce many dissolved substances. The results depend on the system and its certified performance. A typical under-sink system may include these stages:
                 </p>
                 <ol>
-                  <li><span>Sediment filter: rust, sand, and dirt removal</span></li>
-                  <li><span>GAC activated carbon: chlorine, unwanted tastes and odor removal</span></li>
-                  <li><span>Activated carbon block filter: heavy metal removal</span></li>
-                  <li><span>Thin film composite (TFC) membrane: removes desolved impurities</span></li>
-                  <li><span>Post Carbon: enhances and clarifies water prior to delivery</span></li>
-                  <li><span>(Optional) Re-mineralization: Adds some trace minerals back into the water</span></li>
+                  <li><span>Sediment prefilter: reduces particles such as rust and sand.</span></li>
+                  <li><span>Carbon prefilter: can reduce chlorine, taste, and odour.</span></li>
+                  <li><span>Additional carbon filtration: performance depends on the filter model and its certification.</span></li>
+                  <li><span>RO membrane: reduces dissolved substances listed by the manufacturer.</span></li>
+                  <li><span>Postfilter: can improve taste before water reaches the tap.</span></li>
+                  <li><span>Optional remineralization: adds minerals back to the water for taste.</span></li>
                 </ol>
               </div>
               <div class="reverse-osmosis one-card-img right"></div>
@@ -498,12 +503,9 @@
                 <h2>Whole House / Point of Entry Systems</h2>
                 <p>
                   Whole house water filters, otherwise known as Point-of-Entry (POE) systems are designed to filter the water in your entire home
-                  by treating every drop of water as it enters. The systems typically compromise of multiple phases, e.g. one phase to soften the
-                  water and another phase to remove chlorine and unpleasant tastes/odours.
+                  by treating every drop of water as it enters. Systems can combine multiple stages, such as softening to reduce hardness and filtration to reduce chlorine, taste, or odour. The right combination depends on your water and the system.
                   <br/> <br/>
-                  Hardness is usually caused by calcium and/or magnesium and the ion exchange process of the softener media will remove it.
-                  Chlorine is typically added to the water by the city treatment plants to kill bacteria and viruses. The granular active carbon
-                  media will remove the chlorine by absorbing it as it enters your house.
+                  Water hardness is mainly caused by calcium and magnesium. A water softener can reduce these minerals through ion exchange. Activated carbon can reduce chlorine, taste, or odour when the selected system is designed and certified to do so. Check each product’s specifications for the contaminants it addresses.
                 </p>
               </div>
               <div class="clean-water one-card-img right"></div>
